@@ -40,7 +40,7 @@ DJANGO_APPS = [
 
 MORICHAL_APPS = [
     'core',
-    'core.users',
+    'users',
     'rest_framework',
 ]
 
@@ -58,7 +58,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'morichal.urls'
 
-#AUTH_USER_MODEL = 'core.users.User'
+AUTH_USER_MODEL = 'users.User'
 
 TEMPLATES = [
     {
@@ -86,8 +86,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'morichalDB',
-        'USER': 'USER',
-        'PASSWORD': 'PASS',
+        'USER': 'alkprod123',
+        'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': 5433,
     }
