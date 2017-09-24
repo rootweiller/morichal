@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+#from django.http import HttpResponse
 from django.views.generic import TemplateView
 
 
@@ -10,3 +10,4 @@ class Dashboard(TemplateView):
         context = super(Dashboard, self).get_context_data(**kwargs)
 
         return context
+

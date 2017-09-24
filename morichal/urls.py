@@ -13,9 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
+
+API_VERSION = '1.0'
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+    # Dashboard
+    url(r'^api/' + API_VERSION + '/d/', include('dashboard.urls')),
+
+    # Config
+    url(r'^api/' + API_VERSION + '/c/', include('config.urls'))
 ]

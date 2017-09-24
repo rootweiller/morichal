@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import *
-
+from .dashboard import Dashboard
 urlpatterns = [
-    url(r'^$',)
+    url(r'^Dashboard/', Dashboard.as_view(), name='Dashboard'),
 ]
