@@ -25,5 +25,5 @@ urlpatterns = [
     url(r'^api/' + API_VERSION + '/d/', include('dashboard.urls')),
 
     # Config
-    url(r'^api/' + API_VERSION + '/c/', include('config.urls'))
+    url(r'^', include('config.urls'))
 ]
