@@ -41,6 +41,7 @@ DJANGO_APPS = [
 MORICHAL_APPS = [
     'core',
     'users',
+    'schools',
     'rest_framework',
 ]
 
@@ -63,7 +64,7 @@ AUTH_USER_MODEL = 'users.User'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'themes/templates/V1/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,6 +76,15 @@ TEMPLATES = [
         },
     },
 ]
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'themes/static/')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'themes/static/'),
+)
+
+STATIC_URL = '/static/'
 
 WSGI_APPLICATION = 'morichal.wsgi.application'
 
