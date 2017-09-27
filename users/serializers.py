@@ -1,34 +1,25 @@
 from rest_framework import serializers
-from rest_framework.validators import UniqueValidator
 from .models import Teachers, Students
 
 
-class DocumentNumber(object):
-    def __init__(self, queryset, message=None):
-        self.base = UniqueValidator(queryset, message)
-
-
-class TeachersSerializers(serializers.Serializer):
-    document_number = serializers.CharField(
-        validators=[DocumentNumber(Teachers.objects.all())])
+class TeachersSerializers(serializers.ModelSerializer):
 
     class Meta:
-        fields = ('phone', 'document_number', 'document_type', 'education',
-                  'university')
+        model = Teachers
+        fields = '__all__'
 
     def create(self, validated_data):
 
         return Teachers.objects.create(**validated_data)
 
 
-class StundentsSerializers(serializers.Serializer):
-    document_number = serializers.CharField(
-        validators=[DocumentNumber(Students.objects.all)])
-
-    class Meta:
-        fields = ('phone', 'document_number', 'document_type', 'age',
-                  'education')
+class StundentsSerializers(serializers.ModelSerializer):
 
     def create(self, validated_data):
 
         return Students.objects.create(**validated_data)
+
+    class Meta:
+        model = Students
+        fields = '__all__'
+

@@ -13,23 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
-from django.contrib import admin
+from django.conf.urls import *
+from .views import *
 
-API_VERSION = '1.0'
+classroom = ClassRoom.as_view({
+    'get':'list',
+    'post':'create'
+})
+
+schools = Schools.as_view({
+    'get':'list',
+    'post':'create'
+})
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-
-    # Dashboard
-    url(r'^api/' + API_VERSION + '/d/', include('dashboard.urls')),
-
-    # Config
-    url(r'^', include('config.urls')),
-
-    # Users
-    url(r'^api/' + API_VERSION + '/u/', include('users.urls')),
-
-    # schools
-    url(r'^api/' + API_VERSION + '/c/', include('schools.urls'))
+    url(r'^classroom/', classroom, name='classroom'),
+    url(r'^schools/', schools, name='schools')
 ]

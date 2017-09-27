@@ -14,7 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import *
+from .views import *
+
+teachers = Teachers.as_view({
+    'get':'list',
+    'post':'create'
+})
+
+students = Students.as_view(
+    {
+        'get':'list',
+        'post':'create'
+    }
+)
 
 urlpatterns = [
-    url(r'^$',)
+    url(r'^teachers/', teachers, name='teachers'),
+    url(r'^students/', students, name='students')
 ]
