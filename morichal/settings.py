@@ -43,6 +43,8 @@ MORICHAL_APPS = [
     'users',
     'schools',
     'rest_framework',
+    'oauth2_provider',
+    'corsheaders',
 ]
 
 INSTALLED_APPS = (DJANGO_APPS + MORICHAL_APPS)
@@ -55,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'morichal.urls'
@@ -77,6 +80,8 @@ TEMPLATES = [
     },
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'themes/static/')
 
@@ -96,8 +101,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'morichalDB',
-        'USER': 'alkprod123',
-        'PASSWORD': '123456',
+        'USER': 'USER',
+        'PASSWORD': 'PASS',
         'HOST': 'localhost',
         'PORT': 5433,
     }
