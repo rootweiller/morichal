@@ -13,28 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
-from django.contrib import admin
+from django.conf.urls import *
+from .views import *
 
-API_VERSION = '1.0'
+teachers_api = TeacherAPI.as_view()
+students_api = StudentsAPI.as_view()
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^teachers-api/', teachers_api, name='auth_api'),
+    url(r'^students-api/', students_api, name='students-api')
 
-    # Dashboard
-    url(r'^d/', include('dashboard.urls')),
-
-    # Config
-    url(r'^config/', include('config.urls')),
-
-    # Users
-    url(r'^u/', include('users.urls')),
-
-    # schools
-    url(r'^c/', include('schools.urls')),
-
-    url(r'^api/' + API_VERSION + '/a/', include('api.urls')),
-
-    # OAuth
-    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 ]
