@@ -18,8 +18,8 @@ class TeacherAPI(ProtectedResourceView):
 
         if token:
             query = {}
-            if self.request.GET.get("teachers") == "all":
-                query["teachers"] = self.request.GET.get("all")
+            if self.request.GET.get("query") == "all":
+                query["query"] = self.request.GET.get("all")
                 teachers = Teachers.objects.filter(user=token_user.id)
                 data = serializers.serialize('json', teachers)
 
