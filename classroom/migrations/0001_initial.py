@@ -14,13 +14,17 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Schools',
+            name='ClassRoom',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=80)),
-                ('address', models.CharField(max_length=150)),
-                ('dni', models.CharField(max_length=150)),
-                ('codeme', models.CharField(blank=True, max_length=70, null=True)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Score',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('score', models.IntegerField()),
             ],
         ),
     ]

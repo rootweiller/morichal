@@ -11,14 +11,14 @@ admin.site.register(User, UserAdmin)
 
 class TeachersAdmin(admin.ModelAdmin):
 
-    list_display = ('document_number', )
+    list_display = ('university', )
 
 admin.site.register(Teachers, TeachersAdmin)
 
 
 class StudentsAdmin(admin.ModelAdmin):
 
-    list_display = ('document_number', )
+    list_display = ('state', )
 
 admin.site.register(Students, StudentsAdmin)
 

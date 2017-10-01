@@ -2,15 +2,17 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.core.mail import send_mail
-from django.contrib.auth.models import PermissionsMixin
+from django.contrib.auth.models import PermissionsMixin, UserManager
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
-from .managers import UserManager
+from config.models import DOCUMENT_TYPE, Education
+# from .managers import UserManager
 
 
-class User(AbstractBaseUser, PermissionsMixin):
+class AbstractUser(AbstractBaseUser, PermissionsMixin):
+    username = models.CharField(max_length=255, unique=True)
     email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
@@ -21,12 +23,13 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email']
 
     class Meta:
         verbose_name = _('user')
         verbose_name_plural = _('users')
+        abstract = True
 
     def has_perm(self, perm, obj=None):
         return self.is_superuser
@@ -54,40 +57,31 @@ class User(AbstractBaseUser, PermissionsMixin):
         send_mail(subject, message, from_email, [self.email], **kwargs)
 
 
-DOCUMENT_TYPE = (
-    ('CI', 'CEDULA DE IDENTIDAD'),
-    ('PA', 'PASAPORTE'),
-    ('DNI', 'DOCUMENTO DE IDENTIDAD')
-)
-
-
-class Education(models.Model):
-    name = models.CharField(max_length=80)
-    description = models.CharField(max_length=80)
+class User(AbstractUser):
+    phone = models.CharField(max_length=50)
+    address = models.CharField(max_length=255)
+    education = models.ForeignKey(Education, null=True, blank=True)
+    document_type = models.CharField(max_length=4, choices=DOCUMENT_TYPE)
+    document_number = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.name
+            return '{} | {}'.format(self.email, self.username)
 
 
 class Teachers(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=30)
-    education = models.ForeignKey(Education)
-    document_type = models.CharField(max_length=4, choices=DOCUMENT_TYPE)
-    document_number = models.CharField(max_length=15)
     university = models.CharField(max_length=30)
+    date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return '%s - %s' % (self.document_type, self.document_number)
+        return '%s' % self.university
 
 
 class Students(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=80)
-    education = models.CharField(max_length=90)
-    age = models.DateField()
-    document_type = models.CharField(max_length=4, choices=DOCUMENT_TYPE)
-    document_number = models.CharField(max_length=15)
+    date_birth = models.DateField()
+    date_created = models.DateTimeField(auto_now_add=True)
+    state = models.BooleanField(default=False)
 
     def __str__(self):
         return self.document_number

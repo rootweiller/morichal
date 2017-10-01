@@ -25,13 +25,16 @@ urlpatterns = [
     url(r'^d/', include('dashboard.urls')),
 
     # Config
-    url(r'^config/', include('config.urls')),
+    url(r'^', include('config.urls')),
 
     # Users
     url(r'^u/', include('users.urls')),
 
     # schools
     url(r'^c/', include('schools.urls')),
+
+    # ClassRoom
+    url(r'classroom/', include('classroom.urls')),
 
     url(r'^api/' + API_VERSION + '/a/', include('api.urls')),
 
