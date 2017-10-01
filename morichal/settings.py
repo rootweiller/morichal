@@ -41,10 +41,12 @@ DJANGO_APPS = [
 MORICHAL_APPS = [
     'core',
     'users',
+    'config',
     'schools',
     'rest_framework',
     'oauth2_provider',
     'corsheaders',
+    'classroom',
 ]
 
 INSTALLED_APPS = (DJANGO_APPS + MORICHAL_APPS)
@@ -101,8 +103,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'morichalDB',
-        'USER': 'USER',
-        'PASSWORD': 'PASS',
+        'USER': 'alkprod123',
+        'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': 5433,
     }

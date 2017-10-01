@@ -16,10 +16,6 @@ Including another URLconf
 from django.conf.urls import *
 from .views import *
 
-classroom = ClassRoom.as_view({
-    'get':'list',
-    'post':'create'
-})
 
 schools = Schools.as_view({
     'get':'list',
@@ -27,6 +23,5 @@ schools = Schools.as_view({
 })
 
 urlpatterns = [
-    url(r'^classroom/', classroom, name='classroom'),
     url(r'^schools/', schools, name='schools')
 ]

@@ -12,13 +12,3 @@ class Schools(models.Model):
 
     def __str__(self):
         return '%s - %s' % (self.name, self.dni)
-
-
-class ClassRoom(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    name = models.CharField(max_length=80)
-    teacher = models.ForeignKey(Teachers)
-    schools = models.ForeignKey(Schools)
-
-    def __str__(self):
-        return self.name
