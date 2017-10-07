@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+	<title>Morichal Software</title>
+	    
+	<bookinfo>
+	    <author>
+	      <firstname>Juan</firstname>
+	      <surname>Vargas</surname>
+	      <affiliation>
+	        <address>
+	        	<email>rootweiller83@gmail.com</email>
+	        </address>
+	      </affiliation>
+	    </author>
+	   
+	    <copyright>
+	      <year>2017</year>
+	      <holder role="mailto:rootweiller83@gmail.com">Juan Vargas</holder>
+	    </copyright>
+	    
+	    <pubdate role="rcs">$Date: 2017/07/07 10:27:39 $</pubdate>
+	  
+	    <releaseinfo>$Id: DocBookSys-Chapter8-XML-Creating.xml,v 1.1.1.1 2003/01/08 10:27:39 ug55axm Exp $</releaseinfo>
+	  
+	    <abstract>
+	      <para>
+	      	Hace un tiempo atr&aacute;s me propuse la idea de crear un software que permitiera a docentes, alumnos, padres y representantes tener un control total sobre las actividades que suceden dentro de una instituci&oacute;n acad&eacute;mica, en el sentido, de poder controlar notas, asignaturas, contenidos program&aacute;ticos. Para el docente y la sociedad actual es esencial manejar estad&iacute;sticas de todo tipo de cosas, en la educaci&oacute;n (por lo menos en Venezuela) se manejan muy pocas, algunas est&aacute;n desfasadas con el tiempo ya, otras son de car&aacute;cter privado y el fin ac&aacute;, es que puedan contar con una API donde se conecten y eval&uacute;en, por ejemplo, cual ha sido el promedio de notas en una asignatura de un municipio en un estado X, comparar ese promedio con otro municipio en otro estado y a nivel social, poder determinar por que en un u otro los alumnos tienen mejor o peor promedio.
+	      </para>
+	      <para>
+	      	Morichal, naci&oacute; hace un tiempo, mientras trabajaba como docente de aula, siempre quise conocer los n&uacute;meros que rodeaban la educaci&oacute;n, promedios generales, asignaturas, docentes mejor evaluados y esas cosas, por ende, decid&iacute; crear Morichal, al principio era solo para el liceo donde trabajaba, sin embargo hab&iacute;a un enfoque mas de llevar el control del departamento de evaluaci&oacute;n, luego deje ese trabajo y pues coloque a un lado el proyecto, sin embargo lo ando retomando, pues veo la necesidad de mejorar la calidad educativa en muchos aspectos, para poder comenzar con esas mejoras es necesario saber donde se esta y hacia donde se va.
+	      </para>
+	    </abstract>
+	</bookinfo>
+
+	<chapter>
+		<title>Planteamiento del Problema</title>
+	  	<sect1>
+		  		<title>Planteamiento del Problema</title>
+		    <para>
+		    	Desde el inicio de la inform&aacute;tica el software de computadoras era libre, los programadores se intercambiaban piezas de software sin ning&uacute;n problema, siempre que se respetara la propiedad intelectual, sin embargo, las cosas comenzaron a cambiar cuando el computador se hizo m&aacute;s accesible a todas las personas, comenzaron a aparecer empresas que desarrollaban software para computadoras y estas comenzaron a ver el mismo como una pieza del negocio, su rentabilidad se bas&oacute; en la venta de copias, pero que no te pertenec&iacute;an sino m&aacute;s bien adquir&iacute;as un permiso de uso de parte de la empresa, el conocimiento de como estaba hecho el software lo encerraron solo para esa empresa. El tiempo fue pasando y en una carrera contra estas empresas un programador decide romper con los paradigmas impuestos por las casas de software y comienza a liberar su software, as&iacute; como tambi&eacute;n escribe la primera versi&oacute;n de la Licencia P&uacute;blica General GPL con la cual pretend&iacute;a devolverle a los programadores la libertad de poder compartir su software entre ellos y otras personas sin ser acusados de piratas.
+		    </para>
+		    <para>
+		    	El software privativo continua creciendo ya que no es solo el desarrollo de una aplicaci&oacute;n que ejecute un proceso y que la empresa cierre ese c&oacute;digo, tambi&eacute;n se basa en crear patentes para as&iacute; generar un monopolio en donde solo la empresa que desarrolla esa soluci&oacute;n tecnol&oacute;gica sea la que tiene el poder de aprovecharla y ganar dinero con ella. El software libre es, m&aacute;s all&aacute; del tema filos&oacute;fico y t&eacute;cnico, una soluci&oacute;n real a muchos de los problemas de la tecnolog&iacute;a, con &eacute;l es posible, compartir no solo el conocimiento t&eacute;cnico, tambi&eacute;n es posible unir esfuerzos globales para solucionar problemas que pudieran afectar a muchos y colocar esa soluci&oacute;n accesible a todos, para que todos se beneficien de ello, no se dice que con software libre no se pueda ganar dinero o que eso este mal visto, al contrario, se puede y se debe ganar dinero con software libre, la principal diferencia es que la soluci&oacute;n queda accesible y el c&oacute;digo fuente puede ser tomado por cualquier persona en el mundo, adaptarlo a su entorno y resolver su problema.
+		     </para>
+		     <para>
+		     	Desde hace varios a&ntilde;os en Venezuela se utiliza un software mediante el cual se lleva la automatizaci&oacute;n del departamento de control de estudios y evaluaci&oacute;n de una instituci&oacute;n p&uacute;blica, el cual est&aacute; basado en software privativo, el mismo genera una rentabilidad anual por el pago de licencias de uso y no tienen acceso al c&oacute;digo fuente, esto genera una violaci&oacute;n a la Ley de Infogobierno la cual establece en su articulo 34: "Art&iacute;culo 34. El desarrollo, adquisici&oacute;n, implementaci&oacute;n y uso de las tecnolog&iacute;as de informaci&oacute;n por el Poder P&uacute;blico, tiene como base el conocimiento libre. En las actuaciones que se realicen con el uso de las tecnolog&iacute;as de informaci&oacute;n, s&oacute;lo emplear&aacute; programas inform&aacute;ticos en software libre y est&aacute;ndares abiertos para garantizar al Poder P&uacute;blico el control sobre las tecnolog&iacute;as de informaci&oacute;n empleadas y el acceso de las personas a los servicios prestados. Los programas inform&aacute;ticos que se empleen para la gesti&oacute;n de los servicios p&uacute;blicos prestados por el Poder Popular, a trav&eacute;s de las tecnolog&iacute;as de informaci&oacute;n, deben ser en software libre y con est&aacute;ndares abiertos".
+		    </para>
+		</sect1>
+	</chapter>
+
+
+	<chapter>
+		<title>Requisitos Funcionales</title>
+		<sect1>
+			<title>Requisitos Funcionales</title>
+			<para>
+				Los requisitos de un sistema son aquellos requerimientos propios del sistema a desarrollar y comprenden una serie de funciones que el sistema debe  realizar. A continuaci&oacute;n se definir&aacute;n los requisitos funcionales y no funcionales del sistema "Morichal".
+
+			</para>
+			<para>
+
+				<itemizedlist>
+             <listitem><para>Requisitos Funcionales</para>
+               <itemizedlist>
+                 <listitem><para>El sistema enviar&aacute; un correo electr&oacute;nico cuando se registre una de las siguientes acciones: registro de personal docente, administrativo, registro de alumnos, env&iacute;o de boletines.</para></listitem>
+                 <listitem><para>Se permitir&aacute; el registro de alumnos con la siguiente informaci&oacute;n incompleta: correo electr&oacute;nico, n&uacute;mero de tel&eacute;fono, los cuales podr&aacute;n ser completados posteriormente.</para></listitem>
+                 <listitem><para>El sistema permitir&aacute; visualizar sin permiso la data estad&iacute;stica de: cantidad de alumnos registrados, cantidad de instituciones</para></listitem>
+                 <listitem><para>El sistema permitir&aacute; la carga por parte del docente de las notas por alumno y por secci&oacute;n</para></listitem>
+                 <listitem><para>Se permitir&aacute; la creaci&oacute;n de los siguientes perfiles: Instituci&oacute;n educativa, secciones, docentes</para></listitem>
+                 <listitem><para>A cada perfil se le asignar&aacute; un identificador autom&aacute;tico, pero la b&uacute;squeda de perfiles se har&aacute; mediante el documento de identidad en el caso de los docentes y el RIF o raz&oacute;n social en el caso de las instituciones.</para></listitem>
+                 <listitem><para>El sistema controlar&aacute; el acceso y lo permitir&aacute; solamente a usuarios autorizados. Los usuarios deben ingresar al sistema con un nombre de usuario y contrase&ntilde;a.</para></listitem>
+                 <listitem><para>El software estar&aacute; basado en software como servicio (SaaS), pudi&eacute;ndose ejecutar en sistemas operativos: Windows, GNU/Linux, IOS, Android, Windows Phone.</para></listitem>
+                 <listitem><para>El software podr&aacute; usarse sin software adicional en el dispositivo en el que se ejecute.</para></listitem>
+               </itemizedlist>
+             </listitem>
+   
+             <listitem><para>Requisitos no Funcionales</para>
+               <itemizedlist>
+                 <listitem><para>El sistema debe ser capaz de operar adecuadamente con hasta 100.000 usuarios con sesiones concurrentes.</para></listitem>
+                 <listitem><para>Los datos modificados en la base de datos deben ser actualizados para todos los usuarios que acceden en menos de 2 segundos</para></listitem>
+                 <listitem><para>Todos los sistemas deben respaldarse cada 24 horas. Los respaldos deben ser almacenados en una localidad segura ubicada en un edificio distinto al que reside el sistema</para></listitem>
+                 <listitem><para>La aplicaci&oacute;n web debe poseer un diseño "Responsive" a fin de garantizar la adecuada visualizaci&oacute;n en m&uacute;ltiples computadores personales, dispositivos tableta y tel&eacute;fonos inteligentes</para></listitem>
+                 <listitem><para>El sistema debe proporcionar mensajes de error que sean informativos y orientados a usuario final</para></listitem>
+                 <listitem><para>La tasa de errores cometidos por el usuario deberá ser menor del 1% de las transacciones totales ejecutadas en el sistema</para></listitem>
+                 <listitem><para>La interfaz de usuario será implementada para navegadores web &uacute;nicamente con HTML5 y JavaScript</para></listitem>
+                 <listitem><para>El sistema debe asegurar que los datos est&eacute;n protegidos del acceso no autorizado</para></listitem>
+               </itemizedlist>
+             </listitem>
+           </itemizedlist>
+       </para>
+   </sect1>
+</chapter>
+	<chapter>
+		<title>Modelo de Negocio</title>
+		<sect1>
+			<title>Modelo de Negocio</title>
+			<para>
+				El modelado de negocios se describe como la manera de implementar y hacer que este software sea sustentable y sostenible para ello nos basaremos en la filosof&iacute;a del software libre, la cual reza que aunque no se permite la venta de licencias de uso, si es posible generar ingresos a trav&eacute;s de soporte, mantenimiento e instalaci&oacute;n del software, en consecuencia el modelo se basa en el soporte que se le brindar&aacute; a las diferentes instituciones.
+			</para>
+			<para>
+				Es de destacar que todo el c&oacute;digo fuente, as&iacute; como la documentaci&oacute;n estar&aacute; disponible a trav&eacute;s de herramientas tecnol&oacute;gicas que permitan la difusi&oacute;n total del conocimiento y que no existir&aacute; software oculto ni aplicaciones de terceros privativas en "Morichal", las colaboraciones de terceros ser&aacute;n aceptadas a trav&eacute;s del sistema tickets de control de versiones que se escoja para la publicaci&oacute;n del software, as&iacute; como las discusiones que surjan acerca de mejoras e implementaciones nuevas se har&aacute;n a trav&eacute;s del sistema de listas de correos dispuestos y público que tendr&aacute; el proyecto.
+			</para>
+			<para>
+				Teniendo una cuenta que "Morichal" est&aacute; basado en software libre, programadores, peque&ntilde;as y medianas empresas del sector tecnol&oacute;gico, podrán hacer uso del software colocando sus plataformas tecnol&oacute;gicas y vendiendo el hosting, mantenimiento y configuraci&oacute;n del mismo a trav&eacute;s de la arquitectura "Software as Service" (Software como Servicio, SaaS), esta no es la v&iacute;a m&aacute;s pr&aacute;ctica para algunas instituciones, pero sirve para aquellas que poseen pocos equipos de computaci&oacute;n en sus instalaciones.
+			</para>
+		</sect1>
+	</chapter>
+	<chapter>
+		<title>Requerimientos de Software</title>
+	  	<sect1>
+		  		<title>Control del Documento</title>
+		    <para>
+		      Especificaci&oacute;n de requerimientos de software para Morichal. Versi&oacute;n 1.0
+		    </para>
+		</sect1>
+	</chapter>
+
+	<chapter>
+		<title>Reglas de Confidencialidad</title>
+	  	<sect1>
+		  	<title>Reglas de Confidencialidad</title>
+		    <para>
+		    	El presente documento est&aacute; abierto y publicado bajo la licencia GPL, tanto el software desarrollado como el fuente del documento estar&aacute;n publicados en el repositorio de github del proyecto.
+		    </para>
+		    <para>
+		     <table>
+				  <title>Referencias</title>
+				  <tgroup cols="3">
+				    <colspec colname="c1"/>
+				    <colspec colname="c2"/>
+				    <colspec colname="c3"/>
+				    <thead>
+				      <row>
+					<entry>Documento del Sistema</entry>
+					<entry>Arquitectura Tecnol&oacute;gica</entry>
+					<entry>Especificaci&oacute;n de casos de uso</entry>
+				      </row>
+				    </thead>
+				    <tbody>
+				      <row>
+					<entry>Publicado en github en el repositorio de Documentaci&oacute;n</entry>
+					<entry>Presentada en imagenes dentro del documento del sistema</entry>
+					<entry>Presentado dentro del documento del sistema</entry>
+				      </row>
+				    </tbody>
+				  </tgroup>
+				</table>
+		    </para>
+		</sect1>
+	</chapter> 
+
+	<chapter>
+		<title>Referencias</title>
+	   	<sect1>
+		   	<title>referencias</title>
+		    <para>
+		      El objetivo de esta secci&oacute;n es especificar los diferentes requerimientos del software para "Morichal", dentro de los mismos estar&iacute;n definidos los m&oacute;dulos de estudiantes, profesores, salones de clases, asignaturas y colegios.
+		    </para>
+		</sect1>
+	  </chapter>
+
+	<chapter>
+		<title>Arquitectura de Software</title>
+	  	<sect1>
+		  	<title>Descripci&oacute;n</title>
+			<para>
+				Los sistemas cliente-servidor est&aacute;n desarrollados de tal manera que los clientes sean capaces de realizar una consulta al servidor y este les responda, aunque la idea inicial es que todo se encuentre entre un grupo de computadoras es tambi&eacute;n valido para que este modelo sea ejecutado desde un mismo equipo de computaci&oacute;n. Lo que se busca con ello es la posibilidad de distribuir los procesos y acciones del sistema entre varios equipos con la finalidad de mejorar los tiempos de respuesta, la seguridad de los datos y la disponibilidad de datos en todo momento.
+			</para>
+			<para>
+				Dentro del esquema planteado para el desarrollo de "Morichal", se encuentra la arquitectura cliente-servidor, en el caso de algunas instituciones les servir&aacute; para hacer accesible la informaci&oacute;n bien sea, dentro de la red local o en una red externa (conectado a Internet), as&iacute; mismo el desarrollo de "Morichal" permite la posibilidad de usar una arquitectura un tanto má&aacute;s avanzada, como la de software como servicio (SaaS), la cual consiste en que el c&oacute;digo fuente sea tomado por una empresa y/o programador, para ser colocado dentro de su infraestructura tecnol&oacute;gica y cobrar el soporte, mantenimiento y respaldo de data de esa instituci&oacute;n. Todo ello es posible gracias a la manera en la que se desarrolla "Morichal".
+			</para>
+			<para>
+				"Morichal" est&aacute; basado en una arquitectura de Cliente-Servidor, con ella se busca agilizar las tareas y crear un sistema distribuido por un conjunto de servidores que son capaces de responder a las diferentes peticiones de los clientes, as&iacute; mismo su estructura de desarrollo se basa en un aplicaci&oacute;n web, la cual es accesible desde cualquier navegador web moderno, permitiendo al usuario escoger el sistema operativo del lado cliente.
+			</para>
+			<para>
+				En la imagen 1, se describe el como funcionaria en una arquitectura cliente-servidor distribuida en el centro se especifican 3 discos en los cuales se distribuye la base de datos, el backend desarrollado con Python y el frontend desarrollado con HTML5, alrededor se visualizan los clientes que se conectan a través del protocolo de comunicaciones HTTP utilizando como puente el navegador.
+			</para>
+			<para>
+				Como se presenta en la tabla 1, el sistema va a permitir a un administrador general de la plataforma el registro tanto de docentes como alumnos en la misma, a su vez de complementar la informaci&oacute;n necesaria de la instituci&oacute;n educativa, esto ayudar&aacute; a que los reportes de la aplicaci&oacute;n sean mucho m&aacute;s completos. Los datos en la plataforma estar&aacute;n resguardados mediante tablas en el sistema, en una base de datos basada en el motor PostgreSQL, pudiendo ser ejecutada en otros motores como lo son (MariaDB, MySQL, SQLlite), en la siguiente gr&aacute;fica se muestra la relaci&oacute;n que existe entre cada una de las tablas del sistema.
+			</para>
+			<para>
+				Cada perfil de usuario, entendiendo como perfil a un docente, alumno, padre, madre y/o representante, es modelado en tablas con caracter&iacute;sticas especiales para diferenciarlos, es decir, existe una tabla principal que guardalos datos b&aacute;sicos como lo son nombre, apellido, usuario, password, id, si es usuario activo, si es un usuario administrador (en el caso de los docentes)
+			</para>
+			<para>
+				En la imagen anterior se muestra como se distribuye la tabla teachers, existe una relaci&oacute;n de esa tabla con la tabla user que como ya se indic&oacute; se estructura de la siguiente manera.
+			</para>
+			<para>
+				A lo largo del desarrollo de los m&oacute;dulos de la plataforma se hicieron diferentes pruebas unitarias al mismo, tambi&eacute;n pruebas de rendimiento de la aplicaci&oacute;n. En las diferentes pruebas que se hicieron se pudo constatar que efectivamente la aplicaci&oacute;n cumple con los requerimientos iniciales de su desarrollo, veamos algunas pantallas que as&iacute; lo demuestran.
+			</para>
+			<para>
+				Est&aacute; es la primera pantalla de la aplicaci&oacute;n, est&aacute; desarrollada para no permitir el acceso a usuarios no registrados, los usuarios deben ser creados previamente por el administrador del centro educativo. Una vez se logra acceder al sistema, se continua con el dashboard el cual en esta primera versi&oacute;n tiene el siguiente dise&ntilde;o
+			</para>
+			<para>
+				El dashboard es la pantalla administrativa de la aplicaci&oacute;n en ella se puede apreciar el dise&ntilde;o inicial de la aplicaci&oacute;n, esta pantalla que semuestra forma parte de un perfil administrativo el cual tiene permisos de visualizar todos los alumnos, profesores, representantes y los mensajes generados por la plataforma, as&iacute; mismo tiene el acceso a gr&aacute;ficos estad&iacute;sticos que le indican los diferentes rendimientos de los alumnos por asignatura y/o por sal&oacute;n de clase.
+			</para>
+		    <para>
+		   	<itemizedlist>
+             <listitem><para>Books</para>
+               <itemizedlist>
+                 <listitem><para>Donald E. Knuth - The Art Of Computer Programming</para></listitem>
+                 <listitem><para>Nils J. Nilsson - Artificial Intelligence: A New Synthesis</para></listitem>
+                 <listitem><para>Pure Mathematics 2 - Geoff Mannall, Michael Kenwood</para></listitem>
+               </itemizedlist>
+             </listitem>
+   
+             <listitem><para>Games</para>
+               <itemizedlist>
+                 <listitem><para>Chess</para></listitem>
+                 <listitem><para>Backgammon</para></listitem>
+                 <listitem><para>Noughs And Crosses</para></listitem>
+               </itemizedlist>
+             </listitem>
+           </itemizedlist>
+		    </para>
+
+		</sect1>
+	</chapter> 
+
+	<chapter>
+		<title>Contextualizaci&oacute;n del Proyecto</title>
+	  	<sect1>
+		  	<title>Descripci&oacute;n</title>
+		    <para>
+		    	En esta secci&oacute;n se realizar&aacute; un resumen sustentable de la organizaci&oacute;n del equipo de trabajo para el proyecto "Morichal", permitiendo definir el alcance del mismo, artefectos y otros aspectos relacionados.
+		    </para>
+		</sect1>
+		<sect1>
+			<title>Resumen Conceptual del Proyecto</title>
+		    <para>
+		    	En resumidas cuentas "Morichal", comprende una serie de herramientas que le permiten a docentes, alumnos, personal administrativo y padres, establecer una comunicaci&oacute;n directa y efectiva, usando tecnolog&iacute;as de informaci&oacute;n, con el el cual podr&aacute;n acceder a la informaci&oacute;n en tiempo real de la actuaci&oacute;n de sus representados en las diferentes actividades enmarcadas en el calendario acad&eacute;mico.
+		    </para>
+		    <para>
+		    	Como ya se explicado "Morichal", nace por la necesidad de conocer en tiempo real las diferentes actividades de los alumnos en el aspecto acad&eacute;mico as&iacute; como generar estad&iacute;sticas que le permitan a docentes y personal administrativo de las instituciones mejorar aspectos relacionados con el proceso de ense&ntilde;anza - aprendizaje de los j&oacute;venes.
+		    </para>
+		    <para>
+		    	Entre las cosas a mejorar que deben tener en cuenta los docentes, son la metodolog&iacute;a que se usa para la aplicaci&oacute;n que prueban el conocimiento, con "Morichal", se busca una evaluaci&oacute;n continua de estos aspectos y en base a los resultados de la clase aplicar de manera inmediata los diferentes correctivos a los objetivos planteados, bien sea por parte del docente o por parte de clase. La educaci&oacute;n es un proceso de nunca acabar, cada d&iacute;a se debe aprender y aplicar los conocimientos obtenidos en la mejora sustancial de la calidad de vida, de eso se trata, pero mientras no existan indicadores de cuales son las cosas que se deben mejorar, se vuelve un proceso complejo de evaluar.
+		    </para>
+		</sect1>
+	</chapter> 
+
+	<chapter>
+		<title>Conclusi&oacute;n</title>
+		<sect1>
+			<title>Conclusi&oacute;n</title>
+			<para>
+				A lo largo de la presente investigaci&oacute;n se evidencia la importancia de que las instituciones educativas publicas cuenten con un software que les permita llevar un control eficiente del departamento de control de estudios y evaluaci&oacute;n, as&iacute; mismo ese software por razones &eacute;ticas, de ahorro econ&oacute;mico y morales debe estar basado en software libre, por ende, es vital contar con todas las herramientas disponibles para su ejecuci&oacute;n y puesta en producci&oacute;n.
+			</para>
+			<para>
+				En esta investigaci&oacute;n, se propuso la creaci&oacute;n y puesta en producci&oacute;n del software que no solo le permite el control, sino que les permite a todos los integrantes del centro educativo el aprendizaje continuo de los procesos y el de la misma aplicaci&oacute;n, as&iacute; como les da a las instituciones la oportunidad de cumplir con decretos y leyes de la república bolivariana de Venezuela, as&iacute; su car&aacute;cter de formalidad ante las instituciones del estado es de legal.
+			</para>
+			<para>
+				Toda la informaci&oacute;n del software "Morichal" as&iacute; como de su c&oacute;digo fuente se encuentra alojada en Github 1 y puede ser accedida por cualquier persona en cualquier lugar del planeta.
+			</para>
+		</sect1>
+	</chapter>
+
+</book>
