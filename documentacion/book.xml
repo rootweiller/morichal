@@ -175,6 +175,11 @@
 				"Morichal" est&aacute; basado en una arquitectura de Cliente-Servidor, con ella se busca agilizar las tareas y crear un sistema distribuido por un conjunto de servidores que son capaces de responder a las diferentes peticiones de los clientes, as&iacute; mismo su estructura de desarrollo se basa en un aplicaci&oacute;n web, la cual es accesible desde cualquier navegador web moderno, permitiendo al usuario escoger el sistema operativo del lado cliente.
 			</para>
 			<para>
+				<mediaobject>
+				  <imageobject>
+				    <imagedata fileref="arquitectura.jpg" format="JPG"/>
+				  </imageobject>
+				</mediaobject>
 				En la imagen 1, se describe el como funcionaria en una arquitectura cliente-servidor distribuida en el centro se especifican 3 discos en los cuales se distribuye la base de datos, el backend desarrollado con Python y el frontend desarrollado con HTML5, alrededor se visualizan los clientes que se conectan a través del protocolo de comunicaciones HTTP utilizando como puente el navegador.
 			</para>
 			<para>
@@ -238,7 +243,145 @@
 		    	Entre las cosas a mejorar que deben tener en cuenta los docentes, son la metodolog&iacute;a que se usa para la aplicaci&oacute;n que prueban el conocimiento, con "Morichal", se busca una evaluaci&oacute;n continua de estos aspectos y en base a los resultados de la clase aplicar de manera inmediata los diferentes correctivos a los objetivos planteados, bien sea por parte del docente o por parte de clase. La educaci&oacute;n es un proceso de nunca acabar, cada d&iacute;a se debe aprender y aplicar los conocimientos obtenidos en la mejora sustancial de la calidad de vida, de eso se trata, pero mientras no existan indicadores de cuales son las cosas que se deben mejorar, se vuelve un proceso complejo de evaluar.
 		    </para>
 		</sect1>
-	</chapter> 
+	</chapter>
+
+	<chapter>
+		<title>Especificaci&oacute;n de Casos de Uso</title>
+		<sect1>
+			<title>Introducci&oacute;n</title>
+			<para>
+				Esta secci&oacute;n describe los casos de uso de los diferentes m&oacute;dulos pertenecientes al software "Morichal", dentro de los cuales se especificar&aacute;n todos los posibles aspectos de los mismos.
+			</para>
+		</sect1>
+	</chapter>
+
+	<chapter>
+		<title>Instalaci&oacute;n del Entorno de Desarrollo</title>
+		<sect1>
+			<title>Preparaci&oacute;n del Sistema</title>
+			<para>
+				El software "Morichal" est&aacute; desarrollado usando el framework web Django en su versi&oacute;n 1.11.5, as&iacute; mismo tiene una serie de paquetes los cuales se describen en la siguiente tabla.
+				 <table>
+				  <title>Paquetes</title>
+				  <tgroup cols="2">
+				    <colspec colname="c1"/>
+				    <colspec colname="c2"/>
+				    <thead>
+				      <row>
+					<entry>Nombre del Paquete</entry>
+					<entry>Versi&oacute;n</entry>
+				      </row>
+				    </thead>
+				    <tbody>
+				    <row>
+						<entry>Django</entry>
+						<entry>1.11.5</entry>
+					</row>
+					<row>
+						<entry>virtualenv</entry>
+						<entry>15.0.1</entry>
+					</row>
+					<row>
+						<entry>Django-Rest-Framework</entry>
+						<entry>0.1.0</entry>
+					</row>
+					<row>
+						<entry>Psycopg2</entry>
+						<entry>2.7.3.1</entry>
+					</row>
+					<row>
+				    	<entry>oauthlib</entry>
+				    	<entry>2.0.4</entry>				    
+				    </row>
+				    <row>
+				    	<entry>django-cors-middleware</entry>
+				    	<entry>1.3.1</entry>				    
+				    </row>
+				    <row>
+				    	<entry>Pillow</entry>
+				    	<entry>4.2.1</entry>				    
+				    </row>
+				    <row>
+				    	<entry>requests</entry>
+				    	<entry>2.18.4</entry>				    
+				    </row>
+				    </tbody>
+				  </tgroup>
+				</table>
+			</para>
+			<para>
+				Una de las cosas a tener en cuenta para la puesta en producci&oacute;n o testeo de la aplicaci&oacute;n es que puedes hacerlo usando el servidor que trae Django por defecto para estos fines, sin embargo, es de aclarar que esto no es lo recomendable cuando de ponerlo en producci&oacute;n se trata. Tambi&eacute;n puedes usar nginx, apache2 o cualquier servidor web que soporte tecnolog&iacute;a wsgi.
+			</para>
+			<para>
+				El proceso de instalaci&oacute;n es bastante sencillo dependiendo de que sistema operativo se vaya a utilizar, para el caso de este documento se va a utilizar la distribuci&oacute;n Ubuntu GNU/Linux en su versi&oacute;n 17.10, lo primero que se debe hacer es correr la instalaci&oacute;n del paquete <code>apt install virtualenvwrapper</code> una vez ejecutada la anterior linea de comando es necesario crear el entorno virtual con el siguiente comando <code>mkvirtualenv -p /usr/bin/python3 morichal</code> con el entorno virtual es necesario clonarse el proyecto desde Github <code>git clone https://github.com/rootweiller/morichal.git</code> se crear&aacute; la carpeta del proyecto y dentro de ella est&aacute; el archivo pip-requirements.txt, para instalar las diferentes dependencias del proyecto es necesario ejecutar <code>pip install pip-requirements.txt</code>
+			</para>
+			<para>
+				La aplicaci&oacute;n est&aacute; desarrollada para ser usada en un entorno cliente-servidor, por ello como recomendaci&oacute;n se pide que se dividan el servidor del equipo cliente, para el equipo servidor se propone la siguientes caracter&iacute;sticas.
+				<table>
+				  <title>Servidor Backend</title>
+				  <tgroup cols="2">
+				    <colspec colname="c1"/>
+				    <colspec colname="c2"/>
+				    <thead>
+				      <row>
+					<entry>Caracter&iacute;sticas</entry>
+					<entry>Versi&oacute;n</entry>
+				      </row>
+				    </thead>
+				    <tbody>
+				    <row>
+						<entry>Debian GNU/Linux</entry>
+						<entry>9.0</entry>
+					</row>
+					<row>
+						<entry>nginx</entry>
+						<entry>1.13.5</entry>
+					</row>
+					<row>
+						<entry>Disco Duro</entry>
+						<entry>60 GB</entry>
+					</row>
+					<row>
+						<entry>Memoria RAM</entry>
+						<entry>4 GB</entry>
+					</row>
+					<row>
+				    	<entry>Procesador</entry>
+				    	<entry>Intel Xeon o Superior</entry>				    
+				    </row>
+				    </tbody>
+				  </tgroup>
+				</table>
+			</para>
+			<para>
+				Para esta versi&oacute;n del proyecto, el backend y el frontend no est&aacute;n dividas, se usa el manejador de templates de Django, sin embargo, la carga de datos se hace a trav&eacute;s del admin provisto por Django 1.11.5 y se generaron las API para que se conecten las diferentes versiones de la aplicaci&oacute;n, en una primera versi&oacute;n se usar&aacute; una app hibrida, con la cual se le permitir&aacute; a docentes, padres y alumnos cargar la informaci&oacute;n que se requiera para alimentar de datos al software.
+			</para>
+		</sect1>
+		<sect1>
+			<title>Configuraciones Nginx</title>
+			<para>
+				Las configuraciones para levantar el servidor usando nginx 1.13.5 es la siguiente.
+				<code>
+					server {
+						listen 9000;
+						server_name localhost;
+						access_log /var/log/myproject/myproject_access_log;
+						error_log /var/log/myproject/myproject_error_log;
+						root /home/usuario/dev/mysite/myproject;
+
+						location /static {
+							alias /home/usuario/dev/mysite/myproject/static;
+							}
+							location / {
+							uwsgi_pass unix:/tmp/uwsgi_myproject.sock;
+							include uwsgi_params;
+						}
+					}
+				</code>
+			</para>
+		</sect1>
+	</chapter>
+
 
 	<chapter>
 		<title>Conclusi&oacute;n</title>
