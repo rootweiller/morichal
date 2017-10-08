@@ -75,7 +75,12 @@
                  <listitem><para>El software podr&aacute; usarse sin software adicional en el dispositivo en el que se ejecute.</para></listitem>
                </itemizedlist>
              </listitem>
-   
+   				</itemizedlist>
+   			</para>
+   		</sect1>
+   		<sect1>
+   			<title>Requisitos no Funcionales</title>
+   			<itemizedlist>
              <listitem><para>Requisitos no Funcionales</para>
                <itemizedlist>
                  <listitem><para>El sistema debe ser capaz de operar adecuadamente con hasta 100.000 usuarios con sesiones concurrentes.</para></listitem>
@@ -89,7 +94,6 @@
                </itemizedlist>
              </listitem>
            </itemizedlist>
-       </para>
    </sect1>
 </chapter>
 	<chapter>
@@ -103,7 +107,7 @@
 				Es de destacar que todo el c&oacute;digo fuente, as&iacute; como la documentaci&oacute;n estar&aacute; disponible a trav&eacute;s de herramientas tecnol&oacute;gicas que permitan la difusi&oacute;n total del conocimiento y que no existir&aacute; software oculto ni aplicaciones de terceros privativas en "Morichal", las colaboraciones de terceros ser&aacute;n aceptadas a trav&eacute;s del sistema tickets de control de versiones que se escoja para la publicaci&oacute;n del software, as&iacute; como las discusiones que surjan acerca de mejoras e implementaciones nuevas se har&aacute;n a trav&eacute;s del sistema de listas de correos dispuestos y público que tendr&aacute; el proyecto.
 			</para>
 			<para>
-				Teniendo una cuenta que "Morichal" est&aacute; basado en software libre, programadores, peque&ntilde;as y medianas empresas del sector tecnol&oacute;gico, podrán hacer uso del software colocando sus plataformas tecnol&oacute;gicas y vendiendo el hosting, mantenimiento y configuraci&oacute;n del mismo a trav&eacute;s de la arquitectura "Software as Service" (Software como Servicio, SaaS), esta no es la v&iacute;a m&aacute;s pr&aacute;ctica para algunas instituciones, pero sirve para aquellas que poseen pocos equipos de computaci&oacute;n en sus instalaciones.
+				Teniendo una cuenta que "Morichal" est&aacute; basado en software libre, programadores, peque&ntilde;as y medianas empresas del sector tecnol&oacute;gico, podr&aacute;n hacer uso del software colocando sus plataformas tecnol&oacute;gicas y vendiendo el hosting, mantenimiento y configuraci&oacute;n del mismo a trav&eacute;s de la arquitectura "Software as Service" (Software como Servicio, SaaS), esta no es la v&iacute;a m&aacute;s pr&aacute;ctica para algunas instituciones, pero sirve para aquellas que poseen pocos equipos de computaci&oacute;n en sus instalaciones.
 			</para>
 		</sect1>
 	</chapter>
@@ -115,10 +119,6 @@
 		      Especificaci&oacute;n de requerimientos de software para Morichal. Versi&oacute;n 1.0
 		    </para>
 		</sect1>
-	</chapter>
-
-	<chapter>
-		<title>Reglas de Confidencialidad</title>
 	  	<sect1>
 		  	<title>Reglas de Confidencialidad</title>
 		    <para>
@@ -149,17 +149,69 @@
 				</table>
 		    </para>
 		</sect1>
-	</chapter> 
+		<sect1>
+			<title>Especificaci&oacute;n de Requisitos de Software</title>
+			<para>
+				Dentro de las especificaciones de requisitos de software se encuentran todos los m&oacute;dulos que son desarollados, as&iacute; mismo se visualiza la dificultad en cada una de ellas.
+			</para>
+			 <table>
+				  <title>CU 1 Especicaciones de Requisitos de Software</title>
+				  <tgroup cols="4">
+				    <colspec colname="c1"/>
+				    <colspec colname="c2"/>
+				    <colspec colname="c3"/>
+				    <colspec colname="c4"/>
+				    <thead>
+				      <row>
+					<entry>Casos de Uso</entry>
+					<entry>Descripci&oacute;n</entry>
+					<entry>Complejidad</entry>
+					<entry>Prioridad</entry>
+				      </row>
+				    </thead>
+				    <tbody>
+				    <row>
+						<entry>Iniciar Sesi&oacute;n</entry>
+						<entry>Se le permite a los usuarios la autenticaci&oacute;n al sistema usando un usuario y una contrase&ntilde;a, las cuales ser&aacute;n provistas, dependiendo del perfil a trav&eacute;s de un registro en la plataforma o creadas por el administrador</entry>
+						<entry>ALTA</entry>
+						<entry>ALTA</entry>
+					</row>	
+				    <row>
+						<entry>Acceder al Sistema</entry>
+						<entry>Una vez se logre el inicio de sesi&oacute;n se podr&aacute; acceder al sistema y dependiendo de la permisolog&iacute;a que tenga el usuario con el cual se accede se podr&aacute; hacer los diferentes cambios, consultas, ediciones y eliminaciones a las cuales sea posible.</entry>
+						<entry>ALTA</entry>
+						<entry>ALTA</entry>
+					</row>
 
-	<chapter>
-		<title>Referencias</title>
-	   	<sect1>
-		   	<title>referencias</title>
-		    <para>
-		      El objetivo de esta secci&oacute;n es especificar los diferentes requerimientos del software para "Morichal", dentro de los mismos estar&iacute;n definidos los m&oacute;dulos de estudiantes, profesores, salones de clases, asignaturas y colegios.
-		    </para>
-		</sect1>
-	  </chapter>
+				    <row>
+						<entry>Visualizar informaci&oacute;n Docente</entry>
+						<entry>El perfil docente, dentro de la plataforma tendr&aacute; la opci&oacute;n de visualizar la informaci&oacute;n de los cursos que dicta, de sus alumnos, generar gr&aacute;ficas comparativas de sus cursos con respecto a otros, as&iacute; como tambi&eacute;n </entry>
+						<entry>ALTA</entry>
+						<entry>ALTA</entry>
+					</row>
+					<row>
+						<entry>Visualizar informaci&oacute;n Alumno</entry>
+						<entry>EL perfil Alumno, tiene la posibilidad de consultar sus calificaciones, datos personales, visualizar las gr&aacute;ficas generadas por el docente de su curso y visualizar las gr&aacute;ficas generales colocadas en el dashboard principal para todos los alumnos del curso</entry>
+						<entry>ALTA</entry>
+						<entry>ALTA</entry>
+					</row>
+					<row>
+						<entry>Visualizar informaci&oacute;n Representante</entry>
+						<entry>El perfil Representante, tiene la posibilidad de visualizar la informaci&oacute;n de su representado, imprimir los boletines de calificaciones, las gr&aacute;ficas generadas por el o los docentes del curso y revisar el calendario de actividades del curso</entry>
+						<entry>ALTA</entry>
+						<entry>ALTA</entry>
+					</row>
+					<row>
+						<entry>Reportes</entry>
+						<entry>El modulo reportes, permitir&aacute; a los diferentes actores generar reportes como: boletines de calificaciones, sabanas de curso, listado de alumnos por curso, listado general de alumnos, filtrado de alumnos, profesores por documento de identidad, filtrado de asignaturas por curso.</entry>
+						<entry>ALTA</entry>
+						<entry>ALTA</entry>
+					</row>
+				</tbody>
+				  </tgroup>
+				</table>
+			</sect1>
+	</chapter> 
 
 	<chapter>
 		<title>Arquitectura de Software</title>
@@ -200,26 +252,6 @@
 			<para>
 				El dashboard es la pantalla administrativa de la aplicaci&oacute;n en ella se puede apreciar el dise&ntilde;o inicial de la aplicaci&oacute;n, esta pantalla que semuestra forma parte de un perfil administrativo el cual tiene permisos de visualizar todos los alumnos, profesores, representantes y los mensajes generados por la plataforma, as&iacute; mismo tiene el acceso a gr&aacute;ficos estad&iacute;sticos que le indican los diferentes rendimientos de los alumnos por asignatura y/o por sal&oacute;n de clase.
 			</para>
-		    <para>
-		   	<itemizedlist>
-             <listitem><para>Books</para>
-               <itemizedlist>
-                 <listitem><para>Donald E. Knuth - The Art Of Computer Programming</para></listitem>
-                 <listitem><para>Nils J. Nilsson - Artificial Intelligence: A New Synthesis</para></listitem>
-                 <listitem><para>Pure Mathematics 2 - Geoff Mannall, Michael Kenwood</para></listitem>
-               </itemizedlist>
-             </listitem>
-   
-             <listitem><para>Games</para>
-               <itemizedlist>
-                 <listitem><para>Chess</para></listitem>
-                 <listitem><para>Backgammon</para></listitem>
-                 <listitem><para>Noughs And Crosses</para></listitem>
-               </itemizedlist>
-             </listitem>
-           </itemizedlist>
-		    </para>
-
 		</sect1>
 	</chapter> 
 
@@ -253,6 +285,332 @@
 				Esta secci&oacute;n describe los casos de uso de los diferentes m&oacute;dulos pertenecientes al software "Morichal", dentro de los cuales se especificar&aacute;n todos los posibles aspectos de los mismos.
 			</para>
 		</sect1>
+		<sect1>
+			<title>Caso de uso Inicio de Sesi&oacute;n</title>
+			 <table>
+				  <title>CU 1 Iniciar Sesi&oacute;n</title>
+				  <tgroup cols="2">
+				    <colspec colname="c1"/>
+				    <colspec colname="c2"/>
+				    <thead>
+				      <row>
+					<entry>Objetivo</entry>
+					<entry>En este caso de uso se le permite al actor acceder mediante un usuario y contrase&ntilde;a el cual fue asignado por el administrador del sistema</entry>
+				      </row>
+				    </thead>
+				    <tbody>
+				    <row>
+						<entry>Actores</entry>
+						<entry>Administrador: Inicia</entry>
+					</row>
+					<row>
+						<entry>Precondici&oacute;n</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>El actor debe estar autorizado para acceder al sistema</para>
+								</listitem>
+								<listitem>
+									<para>El actor debe poseer un usuario y contrase&ntilde;a v&aacute;lido para poder acceder</para>
+								</listitem>
+								<listitem>
+									<para>Los datos que el actor desea consultar deben ser precargados previamente</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					<row>
+						<entry>Postcondici&oacute;n</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>El actor ingresa correctamente a la aplicaci&oacute;n</para>
+								</listitem>
+								<listitem>
+									<para>El actor visualiza correctamente la informaci&oacute;n a la cual tiene permisos</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					</tbody>
+
+				  </tgroup>
+				</table>
+				<para>
+				<figure>
+					<title>Diagrama iniciar sesi&oacute;n</title>
+					<mediaobject>
+					  <imageobject>
+					    <imagedata fileref="inicia_sesion.jpeg" format="JPEG" scale="300"/>
+					  </imageobject>
+					</mediaobject>
+				</figure>
+				En la tabla anterior se muestra el caso de uso para el inicio de sesi&oacute;n este aplica tanto para docentes, alumnos y representantes dentro de la plataforma "Morichal".
+				</para>
+		</sect1>
+		<sect1>
+			<title>Caso de uso Permisolog&iacute;a</title>
+			<para>
+				En el siguiente CU, se definen los diferentes permisos que tiene cada perfil de usuario para poder acceder y realizar acciones dentro de la plataforma.
+			</para>
+			<para>
+				 <table>
+				  <title>CU 2 Permisolog&iacute;a</title>
+				  <tgroup cols="2">
+				    <colspec colname="c1"/>
+				    <colspec colname="c2"/>
+				    <thead>
+				      <row>
+					<entry>Definici&oacute;n de permisos</entry>
+					<entry>Actor</entry>
+				      </row>
+				    </thead>
+				    <tbody>
+				    <row>
+						<entry>Puede agregar alumnos</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>Administradores</para>
+								</listitem>
+								<listitem>
+									<para>Docentes</para>
+								</listitem>
+								<listitem>
+									<para>Personal Administrativo</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					<row>
+						<entry>Puede eliminar alumnos</entry>
+						<entry>
+							
+							<itemizedlist>
+								<listitem>
+									<para>Administradores</para>
+								</listitem>
+								<listitem>
+									<para>Docentes</para>
+								</listitem>
+								<listitem>
+									<para>Personal Administrativo</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					<row>
+						<entry>Puede consultar alumnos</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>Administradores</para>
+								</listitem>
+								<listitem>
+									<para>Docentes</para>
+								</listitem>
+								<listitem>
+									<para>Personal Administrativo</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					<row>
+						<entry>Puede consultar docentes</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>Administradores</para>
+								</listitem>
+								<listitem>
+									<para>Alumnos</para>
+								</listitem>
+								<listitem>
+									<para>Personal Administrativo</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					<row>
+						<entry>Puede agregar docentes</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>Administradores</para>
+								</listitem>
+								<listitem>
+									<para>Docentes</para>
+								</listitem>
+								<listitem>
+									<para>Personal Administrativo</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					<row>
+						<entry>Puede eliminar docentes</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>Administradores</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					
+					</tbody>
+
+				  </tgroup>
+				</table>
+			</para>
+		</sect1>
+		<sect1>
+			<title>Gestionar docentes</title>
+			<para>
+				En el modulo de gesti&oacute;n del docente se permite una serie una serie de casos de uso en los cuales se definen algunos detalles de la gesti&oacute;n
+			</para>
+			 <table>
+				  <title>CU 1 Gesti&oacute;n Docente</title>
+				  <tgroup cols="2">
+				    <colspec colname="c1"/>
+				    <colspec colname="c2"/>
+				    <thead>
+				      <row>
+					<entry>Objetivo</entry>
+					<entry>
+						Se permite a gesti&oacute;n del docente, bien sea por parte del administrador del sistema como del mismo docente, pudiendo este &uacute;ltimo cambiar su informaci&oacute;n personal y de estudios realizados.
+					</entry>
+				      </row>
+				    </thead>
+				    <tbody>
+				    <row>
+						<entry>Actores</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>Administrador: gestiona completo</para>
+									<para>Docente: gestiona completo</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					<row>
+						<entry>Precondici&oacute;n</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>El actor debe estar autorizado para acceder al sistema</para>
+								</listitem>
+								<listitem>
+									<para>El actor debe poseer un usuario y contrase&ntilde;a v&aacute;lido para poder acceder</para>
+								</listitem>
+								<listitem>
+									<para>Los datos que el actor desea consultar deben ser precargados previamente</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					<row>
+						<entry>Postcondici&oacute;n</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>El actor ingresa correctamente a la aplicaci&oacute;n</para>
+								</listitem>
+								<listitem>
+									<para>El actor visualiza correctamente la informaci&oacute;n a la cual tiene permisos</para>
+								</listitem>
+								<listitem>
+									<para>El actor modifica la informaci&oacute;n que requiera</para>
+								</listitem>
+								<listitem>
+									<para>El actor unicamente puede modificar su informaci&oacute;n</para>
+								</listitem>
+								<listitem>
+									<para>El actor puede cargar las notas de los alumnos asignados a &eacute;l uno por uno o a trav&eacute;s de un CSV</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					</tbody>
+
+				  </tgroup>
+				</table>
+			</sect1>
+			<sect1>
+			<title>Gestionar Alumnos</title>
+			<para>
+				En el modulo de gesti&oacute;n del alumno se permite una serie una serie de casos de uso en los cuales se definen algunos detalles de la gesti&oacute;n
+			</para>
+			 <table>
+				  <title>CU 1 Gesti&oacute;n Alumno</title>
+				  <tgroup cols="2">
+				    <colspec colname="c1"/>
+				    <colspec colname="c2"/>
+				    <thead>
+				      <row>
+					<entry>Objetivo</entry>
+					<entry>
+						Se permite a gesti&oacute;n del alumno, bien sea por parte del administrador del sistema como del mismo docente, pudiendo este &uacute;ltimo cambiar su informaci&oacute;n personal.
+					</entry>
+				      </row>
+				    </thead>
+				    <tbody>
+				    <row>
+						<entry>Actores</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>Administrador: gestiona completo</para>
+									<para>Alumno: gestiona informaci&oacute;n b&aacute;sica</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					<row>
+						<entry>Precondici&oacute;n</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>El actor debe estar autorizado para acceder al sistema</para>
+								</listitem>
+								<listitem>
+									<para>El actor debe poseer un usuario y contrase&ntilde;a v&aacute;lido para poder acceder</para>
+								</listitem>
+								<listitem>
+									<para>Los datos que el actor desea consultar deben ser precargados previamente</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					<row>
+						<entry>Postcondici&oacute;n</entry>
+						<entry>
+							<itemizedlist>
+								<listitem>
+									<para>El actor ingresa correctamente a la aplicaci&oacute;n</para>
+								</listitem>
+								<listitem>
+									<para>El actor visualiza correctamente la informaci&oacute;n a la cual tiene permisos</para>
+								</listitem>
+								<listitem>
+									<para>El actor modifica la informaci&oacute;n que requiera</para>
+								</listitem>
+								<listitem>
+									<para>El actor unicamente puede modificar su informaci&oacute;n b&acute;sica</para>
+								</listitem>
+								<listitem>
+									<para>El actor puede consultar calificaciones por asigatura e imprimir su boletin</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					</tbody>
+
+				  </tgroup>
+				</table>
+			</sect1>
+
 	</chapter>
 
 	<chapter>
@@ -313,7 +671,7 @@
 				Una de las cosas a tener en cuenta para la puesta en producci&oacute;n o testeo de la aplicaci&oacute;n es que puedes hacerlo usando el servidor que trae Django por defecto para estos fines, sin embargo, es de aclarar que esto no es lo recomendable cuando de ponerlo en producci&oacute;n se trata. Tambi&eacute;n puedes usar nginx, apache2 o cualquier servidor web que soporte tecnolog&iacute;a wsgi.
 			</para>
 			<para>
-				El proceso de instalaci&oacute;n es bastante sencillo dependiendo de que sistema operativo se vaya a utilizar, para el caso de este documento se va a utilizar la distribuci&oacute;n Ubuntu GNU/Linux en su versi&oacute;n 17.10, lo primero que se debe hacer es correr la instalaci&oacute;n del paquete <code>apt install virtualenvwrapper</code> una vez ejecutada la anterior linea de comando es necesario crear el entorno virtual con el siguiente comando <code>mkvirtualenv -p /usr/bin/python3 morichal</code> con el entorno virtual es necesario clonarse el proyecto desde Github <code>git clone https://github.com/rootweiller/morichal.git</code> se crear&aacute; la carpeta del proyecto y dentro de ella est&aacute; el archivo pip-requirements.txt, para instalar las diferentes dependencias del proyecto es necesario ejecutar <code>pip install pip-requirements.txt</code>
+				El proceso de instalaci&oacute;n es bastante sencillo dependiendo de que sistema operativo se vaya a utilizar, para el caso de este documento se va a utilizar la distribuci&oacute;n Ubuntu GNU/Linux en su versi&oacute;n 17.10, lo primero que se debe hacer es correr la instalaci&oacute;n del paquete <programlisting>apt install virtualenvwrapper</programlisting> una vez ejecutada la anterior linea de comando es necesario crear el entorno virtual con el siguiente comando <programlisting>mkvirtualenv -p /usr/bin/python3 morichal</programlisting> con el entorno virtual es necesario clonarse el proyecto desde Github <programlisting>git clone https://github.com/rootweiller/morichal.git</programlisting> se crear&aacute; la carpeta del proyecto y dentro de ella est&aacute; el archivo pip-requirements.txt, para instalar las diferentes dependencias del proyecto es necesario ejecutar <programlisting>pip install pip-requirements.txt</programlisting>
 			</para>
 			<para>
 				La aplicaci&oacute;n est&aacute; desarrollada para ser usada en un entorno cliente-servidor, por ello como recomendaci&oacute;n se pide que se dividan el servidor del equipo cliente, para el equipo servidor se propone la siguientes caracter&iacute;sticas.
@@ -361,7 +719,7 @@
 			<title>Configuraciones Nginx</title>
 			<para>
 				Las configuraciones para levantar el servidor usando nginx 1.13.5 es la siguiente.
-				<code>
+				<programlisting>
 					server {
 						listen 9000;
 						server_name localhost;
@@ -377,12 +735,10 @@
 							include uwsgi_params;
 						}
 					}
-				</code>
+				</programlisting>
 			</para>
 		</sect1>
 	</chapter>
-
-
 	<chapter>
 		<title>Conclusi&oacute;n</title>
 		<sect1>
