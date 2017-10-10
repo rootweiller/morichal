@@ -22,7 +22,7 @@ class LoginUser(FormView):
 
     form_class = LoginForm
 
-    success_url = "/api/1.0/d/Dashboard"
+    success_url = "/d/Dashboard"
 
     def dispatch(self, request, *args, **kwargs):
 
