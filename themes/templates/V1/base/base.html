@@ -4,7 +4,15 @@
 
 {% endblock %}
 
-<body>
+
+{% if user.is_authenticated == True %}
+    <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    </body>
+    {% else %}
+        <body>
+
+    {% endif %}
+
     {% block navbar %}
 
         {% include "base/navbar.html" %}
