@@ -1,6 +1,7 @@
 #from django.http import HttpResponse
 from django.views.generic import TemplateView
 from config.views import LoginRequiredMixin
+from schools.models import Schools
 from users.models import Teachers, Students
 
 
@@ -14,6 +15,8 @@ class Dashboard(LoginRequiredMixin, TemplateView):
         context['teachers'] = Teachers.objects.filter(user=self.request.user)\
             .count()
         context['students'] = Students.objects.filter(user=self.request.user)\
+            .count()
+        context['schools'] = Schools.objects.filter(user=self.request.user)\
             .count()
 
         return context
