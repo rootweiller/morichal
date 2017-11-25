@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Schools
+from .models import Schools, ClassRoom
 
 
 class SchoolsSerializers(serializers.ModelSerializer):
@@ -14,6 +14,12 @@ class SchoolsSerializers(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class ClassRoomSerializers(serializers.ModelSerializer):
 
+    def create(self, validated_data):
 
+        return ClassRoom.objects.create(**validated_data)
 
+    class Meta:
+        model = ClassRoom
+        fields = '__all__'

@@ -33,9 +33,6 @@ urlpatterns = [
     # schools
     url(r'^c/', include('schools.urls')),
 
-    # ClassRoom
-    url(r'classroom/', include('classroom.urls')),
-
     url(r'^api/' + API_VERSION + '/a/', include('api.urls')),
 
     # OAuth
