@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import SchoolsSerializers
-from .models import Schools
+from .serializers import SchoolsSerializers, ClassRoomSerializers
+from .models import Schools, ClassRoom
 
 
 class Schools(viewsets.ModelViewSet):
@@ -20,3 +20,19 @@ class Schools(viewsets.ModelViewSet):
         return self.model.objects.filter(**query)
 
 
+class ClassRoom(viewsets.ModelViewSet):
+
+    serializer_class = ClassRoomSerializers
+    model = ClassRoom
+    queryset = model.objects.all()
+
+    def filter_queryset(self, queryset):
+
+        query = {}
+
+        if self.request.GET.get('teacher'):
+            query['teacher__name'] = self.request.GET.get('teacher')
+        if self.request.GET.get('name'):
+            query['name'] = self.request.GET.get('name')
+
+        return self.model.objects.filter(**query)

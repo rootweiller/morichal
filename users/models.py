@@ -85,4 +85,4 @@ class Students(models.Model):
     state = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.document_number
+        return str(self.date_birth)
